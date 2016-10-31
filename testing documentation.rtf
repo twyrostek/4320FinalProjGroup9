@@ -1,0 +1,173 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\froman\fcharset0 Times-Roman;\f2\ftech\fcharset77 Symbol;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ri720
+
+\f0\b\fs50 \cf0 Testing
+\f1\b0\fs20 \
+\
+\pard\pardeftab720\ri720
+
+\f0\fs22 \cf0 User-Acceptance Testing:
+\f1\fs20 \
+
+\f0\fs22 This will happen when our UI is more developed and the database connection is established. 
+\f1\fs20 \
+\
+
+\f0\fs22 Unit Test Scenarios:
+\f1\fs20 \
+\pard\tx720\pardeftab720\li720\fi-360\ri720
+\ls1\ilvl0
+\f2 \cf0 \'a5	
+\f0\fs22 Check successful user login\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Check failed login for bad password\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Check failed login for non-existent user\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Check successful upload\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Check failed upload for file size\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Check failed upload for existing filename\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Check successful download\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Check failed download\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Insert to database success\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Insert to database fail\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Query database success\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Query to database fail\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Successful Search\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Failed Search (will be specified once coded)\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Successful Browse\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Failed Browse for too large of query (timeout)\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Successful contact/message\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Failed Contact/message for incorrect user\
+\ls1\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Failed contact/message for no user present\
+\pard\pardeftab720\ri720
+\cf0 	
+\f1\fs20 \
+\
+\
+
+\f0\fs22 Integration Testing:
+\f1\fs20 \
+
+\f0\fs22 	
+\f1\fs20 \
+
+\f0\fs22 	We will use integration testing whenever we have made changes to multiple functions of the website. Functionality that is affected by user permission level will need to be integrated with login/session monitoring, because different users will have different access which needs to be verified and tested. Browsing and searching will need to be integrated because these functions will be inter-related. When performing integration testing we will use automated unit tests to ensure each system is working independently before testing the integration of the systems.
+\f1\fs20 \
+
+\f0\fs22 \uc0\u8232 We will run the following integration tests if changes are made to any two systems involved:
+\f1\fs20 \
+\
+\pard\tx720\pardeftab720\li720\fi-360\ri720
+\ls2\ilvl0
+\f2 \cf0 \'a5	
+\f0\fs22 Data retrieved \
+\pard\tx720\pardeftab720\li720\fi-360\ri720
+\ls3\ilvl0
+\f2\fs20 \cf0 \'a5	
+\f0\fs22 Ensure that non logged in users cannot access the members\'92 area.\
+\ls3\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Ensure that a logged in user can view documents they have access to.	\
+\pard\tx720\pardeftab720\li720\fi-360\ri720
+\ls4\ilvl0
+\f2\fs20 \cf0 \'a5	
+\f0\fs22 Ensure that a logged in used can not view docs that they do not have access to.\
+\ls4\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Ensure that a logged in Researcher or Data Scientist can upload files\
+\ls4\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Ensure that a logged in student cannot upload files\
+\ls4\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Ensure that a logged in user can download file\
+\ls4\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Ensure that a logged in user can search\
+\ls4\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Ensure that a logged in user can browse\
+\ls4\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Ensure that admin has all functionality\
+\ls4\ilvl0
+\f2\fs20 \'a5	
+\f0\fs22 Ensure that logged in users can contact contributors.\
+\pard\pardeftab720\ri720
+
+\f1\fs20 \cf0 \
+\
+\pard\pardeftab720\ri720
+
+\f0\fs22 \cf0 Regression Testing: 
+\f1\fs20 \
+\
+
+\f0\fs22 Regression testing is checking to ensure that all the systems of your software are still working properly after you have made a change to the code. This would involve testing your entire system for basic and integrated functionality. Known bugs should also be tested for. 
+\f1\fs20 \
+
+\f0\fs22 	Our group will do regression testing by running automated unit tests whenever individual systems are altered, and running integration testing when multiple systems are altered. We will keep track of any bugs we encounter along the way and set up testing cases for those bugs. As bugs are encountered we will incorporate a plan for testing for those bugs into our regression testing plan. 
+\f1\fs20 \
+
+\f0\fs22 	Since we have not made any changes to our code after our first commit, the regression testing will happen in our next sprint. 
+\f1\fs20 \
+\
+\
+
+\f0\fs22 Verification:
+\f1\fs20 \
+
+\f0\fs22 All unit and regression testing.
+\f1\fs20 \
+\
+
+\f0\fs22 Validation:
+\f1\fs20 \
+
+\f0\fs22 All user-acceptance and integration testing. 
+\f1\fs20 \
+}
