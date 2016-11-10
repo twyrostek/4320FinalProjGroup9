@@ -1,7 +1,7 @@
 /* Stubs */
 
 /* Authentication */
-function registerAccount(username, password, firstName, lastName, email) {}
+function registerAccount(username, password, firstName, lastName, email, userType) {}
 
 function login(username, password) {}
 
