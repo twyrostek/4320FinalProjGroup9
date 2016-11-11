@@ -25,6 +25,10 @@ function editManifest(manifestId, filename) {}
 
 function downloadManifest(manifestId) {}
 
+function searchManifest(keyword) {}
+
+function searchUser(keyword) {}
+
 function favoriteManifest(manifestId) {}
 
 function unfavoriteManifest(manifestId) {}
