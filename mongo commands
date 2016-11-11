@@ -4,7 +4,11 @@ switched to db ocdx         //Creates and switches to our MongoDB entitled "ocdx
 > db.createCollection("manifest")
 { "ok" : 1 }                //Creates the collection in our database called "manifest"
 
+<<<<<<< HEAD
 > db.manifest.insert({      //Creation and insertion of the dummy data in our database
+=======
+> db.manifest.insert({      
+>>>>>>> master
 ... "manifests": {
 ... "manifest": {
 ... "standardVersions": "ocdxManifest schema v.1",
@@ -228,9 +232,18 @@ db.createCollection("user") // Creates the user collection in our ocdx database
 db.user.insert({
     "user_id": "18132351",
     "name": "Jon Doe",
+<<<<<<< HEAD
     "salt": "asdfeu2435cx9pq4htqwvr",
     "hashpw": "q83ryaldfhaoiw37traobvsdf",
     "user_type": "researcher",
+=======
+    "userName": "JDoe",
+    "pw": "eggsandbac0n",
+    "salt": "asdfeu2435cx9pq4htqwvr",
+    "hashpw": "q83ryaldfhaoiw37traobvsdf",
+    "user_type": "researcher",
+    "is_admin": "yes",
+>>>>>>> master
     "email": "jdoe@notarealemail.com",
     "location": "Columbia, MO"
 })
