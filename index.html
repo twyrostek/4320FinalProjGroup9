@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
 
-    //New connection to the database
-    $connection = new MongoClient();
-
-    //Handle to the ocdx database
-    $db = $connection->ocdx;
-
-    //Handle to the collection
-    $manifest_collection = $db->manifest;
-
-    $cursor = $manifest_collection->find();
-?>
 <head>
 
     <meta charset="utf-8">
@@ -38,6 +24,27 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+      input[type=text] {
+        width: 130px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+        background-image: url('searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+      }
+
+      input[type=text]:focus {
+        width: 100%;
+      }
+    </style>
+
 </head>
 
 <body>
@@ -53,7 +60,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="index.php">Dashboard</a>
+                    <a href="#">Dashboard</a>
                 </li>
                 <li>
                     <a href="#">Search</a>
@@ -83,13 +90,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Upload Manifest Page</h1>
-                        <p>
-                            <form action='insert.php' method='POST'>
-                                <input type='file' accept=".json" name='manifest'><br>
-                                <input type='submit' name='upload_btn' value='Upload'>
-                            </form>
-                        </p>
+                        <h1>Simple Sidebar</h1>
+                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
