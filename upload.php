@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
+    //New connection to the database
+    $connection = new MongoClient();
+
+    //Handle to the ocdx database
+    $db = $connection->ocdx;
+
+    //Handle to the collection
+    $manifest_collection = $db->manifest;
+
+    $cursor = $manifest_collection->find();
+?>
 <head>
 
     <meta charset="utf-8">
@@ -24,37 +38,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <style>
-      input[type=text] {
-        width: 130px;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-        background-color: white;
-        background-image: url('searchicon.png');
-        background-position: 10px 10px;
-        background-repeat: no-repeat;
-        padding: 12px 20px 12px 40px;
-        -webkit-transition: width 0.4s ease-in-out;
-        transition: width 0.4s ease-in-out;
-      }
-
-      input[type=text]:focus {
-        width: 100%;
-      }
-    </style>
-
 </head>
 
 <body>
-<?php require_once 'dbConnect.php'; ?>
-<?php require_once 'miniApi.php'; ?>
-<?php
-        if(chkLogin()==false){
-        header("Location: login.php");
-    }
-    ?>
+
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -66,7 +53,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="index.php">Dashboard</a>
                 </li>
                 <li>
                     <a href="#">Search</a>
@@ -76,13 +63,13 @@
                     <a href="#">View</a>
                 </li>
                 <li>
-                    <a href="upload.php">Upload</a>
+                    <a href="#">Create</a>
                 </li>
                 <li>
                     <a href="#">Settings</a>
                 </li>
                 <li>
-                    <a href="logout.php">Logout</a>
+                    <a href="#">Logout</a>
                 </li>
                 <li>
                     <a href="#">About</a>
@@ -96,10 +83,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Group 9 Final Project</h1>
-                        <?php 
-                        echo "Hello " . $_SESSION["uname"] . "!";
-                        ?>
+                        <h1>Upload Manifest Page</h1>
+                        <p>
+                            <form action='insert.php' method='POST' enctype="multipart/form-data">
+                                <input type='file' accept=".json" name='manifest'><br>
+                                <input type='submit' name='upload_btn' value='Upload'>
+                            </form>
+                        </p>
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
