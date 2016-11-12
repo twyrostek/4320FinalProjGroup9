@@ -15,10 +15,7 @@
 
     $cursor = $manifest_collection->find();
 ?>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 <head>
 
     <meta charset="utf-8">
