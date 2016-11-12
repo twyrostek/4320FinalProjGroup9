@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //Creates and switches to our MongoDB entitled "ocdx"
 >use ocdx
 switched to db ocdx         
@@ -7,6 +8,14 @@ switched to db ocdx
 { "ok" : 1 }                
 
 //Creation and insertion of the dummy data in our database
+=======
+>use ocdx
+switched to db ocdx         //Creates and switches to our MongoDB entitled "ocdx"
+
+> db.createCollection("manifest")
+{ "ok" : 1 }                //Creates the collection in our database called "manifest"
+
+>>>>>>> master
 > db.manifest.insert({      
 ... "manifests": {
 ... "manifest": {
@@ -227,6 +236,7 @@ WriteResult({ "nInserted" : 1 })
 ... }
 ... })
 
+<<<<<<< HEAD
 //Updates the document in collection manifest whose title is Reddit to ocdx
 db.manifest.update(
 {"manifests.manifest.researchObject.title" : "Reddit"},{$set: {"manifests.manifest.researchObject.title" : "ocdx"}})
@@ -273,3 +283,27 @@ db.log.update({"user_id": "18132352"},{$set: {"pass_fail" : "fail"}})
 
 //Deletes the log with the specified _id
 db.log.deleteOne({"_id" : ObjectId("58267faffdc91c910a02f280")})
+=======
+db.createCollection("user") // Creates the user collection in our ocdx database
+db.user.insert({
+    "user_id": "18132351",
+    "name": "Jon Doe",
+    "userName": "JDoe",
+    "pw": "eggsandbac0n",
+    "salt": "asdfeu2435cx9pq4htqwvr",
+    "hashpw": "q83ryaldfhaoiw37traobvsdf",
+    "user_type": "researcher",
+    "is_admin": "yes",
+    "email": "jdoe@notarealemail.com",
+    "location": "Columbia, MO"
+})
+
+db.createCollection("log") // Creates the log collection in our ocdx database
+db.log.insert({
+    "user_id": "18132352",
+    "timestamp" : new Date(),
+    "action": "login",
+    "pass_fail": "pass"
+})
+
+>>>>>>> master
