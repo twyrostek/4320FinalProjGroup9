@@ -1,14 +1,13 @@
+//Creates and switches to our MongoDB entitled "ocdx"
 >use ocdx
-switched to db ocdx         //Creates and switches to our MongoDB entitled "ocdx"
+switched to db ocdx         
 
+//Creates the collection in our database called "manifest"
 > db.createCollection("manifest")
-{ "ok" : 1 }                //Creates the collection in our database called "manifest"
+{ "ok" : 1 }                
 
-<<<<<<< HEAD
-> db.manifest.insert({      //Creation and insertion of the dummy data in our database
-=======
+//Creation and insertion of the dummy data in our database
 > db.manifest.insert({      
->>>>>>> master
 ... "manifests": {
 ... "manifest": {
 ... "standardVersions": "ocdxManifest schema v.1",
@@ -228,31 +227,49 @@ WriteResult({ "nInserted" : 1 })
 ... }
 ... })
 
-db.createCollection("user") // Creates the user collection in our ocdx database
+//Updates the document in collection manifest whose title is Reddit to ocdx
+db.manifest.update(
+{"manifests.manifest.researchObject.title" : "Reddit"},{$set: {"manifests.manifest.researchObject.title" : "ocdx"}})
+
+//Deletes one document with the creator Kristen Schuster
+db.manifest.deleteOne({"manifests.manifest.creator" : "Kristen Schuster"})
+
+// Creates the user collection in our ocdx database
+db.createCollection("user") 
+
+//Inserts a document into the user collection
 db.user.insert({
-    "user_id": "18132351",
-    "name": "Jon Doe",
-<<<<<<< HEAD
-    "salt": "asdfeu2435cx9pq4htqwvr",
-    "hashpw": "q83ryaldfhaoiw37traobvsdf",
-    "user_type": "researcher",
-=======
-    "userName": "JDoe",
-    "pw": "eggsandbac0n",
-    "salt": "asdfeu2435cx9pq4htqwvr",
-    "hashpw": "q83ryaldfhaoiw37traobvsdf",
-    "user_type": "researcher",
-    "is_admin": "yes",
->>>>>>> master
-    "email": "jdoe@notarealemail.com",
-    "location": "Columbia, MO"
+"user_id": "18132351",
+"name": "Jon Doe",
+"userName": "JDoe",
+"pw" : "eggsandbac0n",
+"salt": "asdfeu2435cx9pq4htqwvr",
+"hashpw": "q83ryaldfhaoiw37traobvsdf",
+"user_type": "researcher",
+"is_admin" : "yes",
+"email": "jdoe@notarealemail.com",
+"location": "Columbia, MO"
 })
 
-db.createCollection("log") // Creates the log collection in our ocdx database
+//Updates the email of a document in the user collection that has a name of Jon Doe
+db.user.update({"name": "Jon Doe"},{$set: {"email" : "jon.doe@jondoe.com"}})
+
+//Deletes the user whose name is Samuel Brown
+db.user.deleteOne({"name" : "Samuel Brown"})
+
+//Creates the log collection
+db.createCollection("log") 
+
+//Inserts a document into the log collection
 db.log.insert({
-    "user_id": "18132352",
-    "timestamp" : new Date(),
-    "action": "login",
-    "pass_fail": "pass"
+"user_id": "18132352",
+"timestamp" : new Date(),
+"action": "login",
+"pass_fail": "pass"
 })
 
+//Updates the pass_fail field of document with user id of 18132352
+db.log.update({"user_id": "18132352"},{$set: {"pass_fail" : "fail"}})
+
+//Deletes the log with the specified _id
+db.log.deleteOne({"_id" : ObjectId("58267faffdc91c910a02f280")})
