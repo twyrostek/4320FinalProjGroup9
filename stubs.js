@@ -7,9 +7,11 @@ function login(username, password) {}
 
 function logout() {}
 
-//function deactivateAccount(password){} ?
-//function changeUsername(username){} ?
-//function changePassword(password){} ?
+function deactivateAccount(password){} 
+
+function changeUsername(username){} 
+
+function changePassword(password){} 
 
 /* Message */
 function postMessage(message) {}
@@ -33,5 +35,3 @@ function favoriteManifest(manifestId) {}
 
 function unfavoriteManifest(manifestId) {}
 
-//function createJupyterH(???????????){} ?
-//function spawnJupyterH(????????????){} ?
