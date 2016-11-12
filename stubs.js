@@ -7,11 +7,11 @@ function login(username, password) {}
 
 function logout() {}
 
-function deactivateAccount(password){} 
+//function deactivateAccount(password) {} 
 
-function changeUsername(username){} 
+//function changeUsername(username) {} 
 
-function changePassword(password){} 
+//function changePassword(password) {} 
 
 /* Message */
 function postMessage(message) {}
@@ -31,7 +31,7 @@ function searchManifest(keyword) {}
 
 function searchUser(keyword) {}
 
-function favoriteManifest(manifestId) {}
+//function favoriteManifest(manifestId) {}
 
-function unfavoriteManifest(manifestId) {}
+//function unfavoriteManifest(manifestId) {}
 
