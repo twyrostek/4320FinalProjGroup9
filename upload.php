@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php require_once 'dbConnect.php'; ?>
+<?php require_once 'miniApi.php'; ?>
+<?php
+        if(chkLogin()==false){
+        header("Location: login.php");
+    }
+?>
+
 <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
-
+    //session_start();
+    
+    //$_SESSION["response"] = "test";
+    
     //New connection to the database
     $connection = new MongoClient();
 
@@ -15,6 +26,7 @@
 
     $cursor = $manifest_collection->find();
 ?>
+
 <head>
 
     <meta charset="utf-8">
@@ -23,7 +35,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>OCDX Upload Manifest</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -56,20 +68,14 @@
                     <a href="index.php">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#">Search</a>
+                    <a href="search.php">Search</a>
 
                 </li>
                 <li>
-                    <a href="#">View</a>
+                    <a href="upload.php">Upload</a>
                 </li>
                 <li>
-                    <a href="#">Create</a>
-                </li>
-                <li>
-                    <a href="#">Settings</a>
-                </li>
-                <li>
-                    <a href="#">Logout</a>
+                    <a href="logout.php">Logout</a>
                 </li>
                 <li>
                     <a href="#">About</a>
@@ -83,17 +89,27 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Upload Manifest Page</h1>
+                        <h1>Upload Manifest</h1>
                         <p>
                             <form action='insert.php' method='POST' enctype="multipart/form-data">
                                 <input type='file' accept=".json" name='manifest'><br>
                                 <input type='submit' name='upload_btn' value='Upload'>
                             </form>
+                        <div>
+                            <?php
+                                
+                                if(isset($_SESSION["response"])){
+                                    echo $_SESSION["response"];
+                                    unset($_SESSION["response"]);
+                                }
+                                //$_SESSION["response"] = "";
+                            ?>
+                        </div>
                         </p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
             </div>
+            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
         </div>
         <!-- /#page-content-wrapper -->
 
