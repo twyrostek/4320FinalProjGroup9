@@ -35,7 +35,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>OCDX Upload Manifest</title>
+    <title>OCDX Download Manifest</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -65,21 +65,26 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Upload Manifest</h1>
+                        <h1>Download Manifest</h1>
                         <p>
-                            <form action='insert.php' method='POST' enctype="multipart/form-data">
-                                <input type='file' accept=".json" name='manifest'><br>
-                                <input type='submit' name='upload_btn' value='Upload'>
-                            </form>
                         <div>
                             <?php
-                                
-                                if(isset($_SESSION["response"])){
-                                    echo $_SESSION["response"];
-                                    unset($_SESSION["response"]);
+                                $list = "";
+                                $dir = '/var/www/files/';    
+                                if ($handle = opendir('/var/www/files/')) {
+                                    while (false !== ($file = readdir($handle))) {
+                                        if ($file != "." && $file != "..") {
+                                            $list .= '<li><a href="download.php?file='.$file.'">'.$file.'</a></li>';
+                                        }
                                 }
-                                //$_SESSION["response"] = "";
+                                    closedir($handle);
+                                } 
                             ?>
+                                <h1>List of files:</h1>
+                                <ul><?php echo $list; ?></ul>
+                        </div>    
+                        <div>
+                            
                         </div>
                         </p>
                     </div>
