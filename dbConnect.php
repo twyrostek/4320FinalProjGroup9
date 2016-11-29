@@ -5,8 +5,10 @@
 
     $db = $m->ocdx;
     //echo "Databse loginreg selected";
-    $collection = $db->user; 
+    $collection = $db->user;
+    $manifestCollection = $db->manifest;
     //echo "Collection userdata Selected Successfully";
+        // test
     }
     catch (Exception $e){
         die("Unable to connect");
