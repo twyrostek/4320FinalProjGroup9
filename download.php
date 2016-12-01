@@ -1,116 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php require_once 'dbConnect.php'; ?>
-<?php require_once 'miniApi.php'; ?>
 <?php
-        if(chkLogin()==false){
-        header("Location: login.php");
+    ignore_user_abort(true);
+    set_time_limit(0); // disable the time limit for this script
+ 
+    $path = "/var/www/files/"; 
+ 
+    $dl_file = preg_replace("([^\w\s\d\-_~,;:\[\]\(\).]|[\.]{2,})", '', $_GET['download_file']); // simple file name validation
+    $dl_file = filter_var($dl_file, FILTER_SANITIZE_URL); // Remove (more) invalid characters
+    $fullPath = $path.$dl_file;
+ 
+    if ($fd = fopen ($fullPath, "r")) {
+        $fsize = filesize($fullPath);
+        $path_parts = pathinfo($fullPath);
+        $ext = strtolower($path_parts["extension"]);
+            switch ($ext) {
+                case "json":
+                    header("Content-type: application/json");
+                    header("Content-Disposition: attachment; filename=\"".$path_parts["basename"]."\""); // use 'attachment' to force a file download
+                    break;
+                                            
+                default:
+                    header("Content-type: application/octet-stream");
+                    header("Content-Disposition: filename=\"".$path_parts["basename"]."\"");
+                    break;
+            }
+            header("Content-length: $fsize");
+            header("Cache-control: private"); //use this to open files directly
+            while(!feof($fd)) {
+                $buffer = fread($fd, 2048);
+                echo $buffer;
+            }
     }
+    fclose ($fd);
+    exit;
 ?>
-
-<?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-    //session_start();
-    
-    //$_SESSION["response"] = "test";
-    
-    //New connection to the database
-    $connection = new MongoClient();
-
-    //Handle to the ocdx database
-    $db = $connection->ocdx;
-
-    //Handle to the collection
-    $manifest_collection = $db->manifest;
-
-    $cursor = $manifest_collection->find();
-?>
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>OCDX Download Manifest</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <?php include 'navbar.php';?>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Download Manifest</h1>
-                        <p>
-                        <div>
-                            <?php
-                                $list = "";
-                                $dir = '/var/www/files/';    
-                                if ($handle = opendir('/var/www/files/')) {
-                                    while (false !== ($file = readdir($handle))) {
-                                        if ($file != "." && $file != "..") {
-                                            $list .= '<li><a href="download.php?file='.$file.'">'.$file.'</a></li>';
-                                        }
-                                }
-                                    closedir($handle);
-                                } 
-                            ?>
-                                <h1>List of files:</h1>
-                                <ul><?php echo $list; ?></ul>
-                        </div>    
-                        <div>
-                            
-                        </div>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-
-</body>
-
-</html>
