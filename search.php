@@ -5,44 +5,51 @@
 
 
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+    
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
+    
+    
 
 
 <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
 
 	<div id="wrapper">
-
+	
 		<!-- Sidebar -->
-		<?php include 'navbar.php';?>  
+        <?php include 'navbar.php';?>
 		<!-- /#sidebar-wrapper -->
-
-		<div class="container">
-			<h1>Search Manifests/Users</h1>
-			<form class="form-horizontal" method="get" action="#">
-				<div class="form-group">
-					<label class="sr-only" for="search"> Search </label>
-					<input type="text" class="form-control" name="search" placeholder="Search">
+		
+		<div class="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1>Search Manifests/Users</h1>
+						<form class="form-horizontal" method="get" action="#">
+							<div class="form-group">
+								<label class="sr-only" for="search"> Search </label>
+								<input type="text" class="form-control" name="search" placeholder="Search">
+							</div>
+							<button type="submit" name="searchManifest">Search Manifest</button>
+							<button type="submit" name="searchUser">Search User</button>
+						</form>
+					</div>
 				</div>
-				<button type="submit" name="searchManifest">Search Manifest</button>
-				<button type="submit" name="searchUser">Search User</button>
-			</form>
-			<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+			</div>
+			
 		</div>
-
+		
 	</div>
 	<!-- /#wrapper -->
 
@@ -59,39 +66,58 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-
-
+    
+    
 
 <?php require_once 'dbConnect.php'; ?>
 <?php require_once 'miniApi.php'; ?>
+   
 
+<?php 
 
-<?php
-
-
+    
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //$query = $manifestCollection->find();
         echo "<div>" . $query . "</div>";
-
+        //search manifests
     if (isset($_GET['searchManifest'])) {
-		$query = $manifestCollection.find("manifest:{researchObject:{'title'}}");
+        $search = $_GET['search'];
+		$query = $manifestCollection->find();
+       // print_r($document);
 		foreach ($query as $document) {
-			echo "<div style='margin-left:500px;'>" . $document . "</div>";
+           // print_r($document);
+            $item = $document["title"];
+            //print_r($item");
+            //print_r($search);
+            if($item == $search){
+               echo "<div class='item' style='margin:50px;color:white;background-color:black;padding:20px;font-size:24px;border-radius:10px;'>";
+                print_r($item);
+                echo "<a href='http://ec2-52-15-52-224.us-east-2.compute.amazonaws.com/download.php?download_file=test2.json
+'><button type='button' class='btn btn-default' style='margin-left:400px;'>Download</button></a></div>";
+            }
+			//echo "<div style='margin-left:500px;'>";
+            //print_r($document["manifests"]["manifest"]["researchObject"]["title"]);
+            //echo "</div>";
 		}
+        //search users
     } elseif (isset($_GET['searchUser'])) {
+        $search = $_GET['search'];
 		$query = $collection->find();
 		foreach ($query as $document) {
-			echo "<div style='margin-left:500px;'>" . $document["name"] . "</div>";
+            $item = $document["name"];
+            if($item == $search){
+			echo "<div style='margin-left:500px;'>" . $item . "</div>";
+            }
         }
     } else {
 		echo "<div style='margin-left:500px;'>" . "Please enter a search term" . "</div>";
 	}
 }
 
+    
+?>     
 
-?>
-
-
-
+    
+	
 </body>
 </html>

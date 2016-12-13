@@ -9,13 +9,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Squad OCDX</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,6 +47,9 @@
       input[type=text]:focus {
         width: 100%;
       }
+
+
+
     </style>
 
 </head>
@@ -55,52 +62,28 @@
         header("Location: login.php");
     }
     ?>
-    <div id="wrapper">
+<?php include 'navbar.php';?>        <!-- /#sidebar-wrapper -->
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        OCDX eXchange
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Search</a>
-
-                </li>
-                <li>
-                    <a href="#">View</a>
-                </li>
-                <li>
-                    <a href="upload.php">Upload</a>
-                </li>
-                <li>
-                    <a href="#">Settings</a>
-                </li>
-                <li>
-                    <a href="logout.php">Logout</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Group 9 Final Project</h1>
-                        <?php 
+
+                    <img src="images/ocdxlogo.png" alt="logo" class="displayed" style="width:200px; height:200px;">
+
+                    <div class="col-lg-12" align="center">
+
+                        <h1>Join the squad!</h1>
+
+                        <p>
+                        <?php
                         echo "Hello " . $_SESSION["uname"] . "!";
                         ?>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        </p>
+
+
+
                     </div>
                 </div>
             </div>
@@ -109,6 +92,7 @@
 
     </div>
     <!-- /#wrapper -->
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

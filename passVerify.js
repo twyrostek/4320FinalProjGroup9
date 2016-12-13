@@ -12,3 +12,4 @@ var cpass = document.getElementById("cpass").value;
         document.getElementById("error").innerHTML = "Passwords match!";
     }
 }
+
