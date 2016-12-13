@@ -36,6 +36,8 @@
     <meta name="author" content="">
 
     <title>OCDX Upload Manifest</title>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +61,7 @@
         <!-- Sidebar -->
         <?php include 'navbar.php';?>
         <!-- /#sidebar-wrapper -->
-
+            
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -68,7 +70,9 @@
                         <h1>Upload Manifest</h1>
                         <p>
                             <form action='insert.php' method='POST' enctype="multipart/form-data">
-                                <input type='file' accept=".json" name='manifest'><br>
+                                <input type='file' accept='.json' name='manifest'><br>
+                                <input type='text' name='title' placeholder='Title'><br>
+                                <input type='text' name='author' placeholder='Author'><br>
                                 <input type='submit' name='upload_btn' value='Upload'>
                             </form>
                         <div>
@@ -85,10 +89,9 @@
                     </div>
                 </div>
             </div>
-            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
         </div>
         <!-- /#page-content-wrapper -->
-
+        
     </div>
     <!-- /#wrapper -->
 

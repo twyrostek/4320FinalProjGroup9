@@ -18,8 +18,9 @@
         $query = $collection->findOne($criteria);
         //var_dump($query);
         if(empty($query)){
-            echo "Email ID is not registered.";
-            echo "Either <a href='register'>Register</a> with the new Email ID or <a href='login.php'>Login</a> with an already registered ID";
+            echo "Your Email or password was incorrect.";
+			echo "<br>";
+			echo "Click <a href='register.php'>Register</a> to create a new account or <a href='login.php'>Login</a> if you already have an account.";
         }
         else{
             
@@ -40,18 +41,19 @@
                     }
                 }
                 else{
-                    echo "You have entered a wrong password";
+                    echo "Your Email or password was incorrect.";
                     echo "<br>";
-                    echo $pass . "<br>";
-                    echo $upass . "<br>";
+                    //echo $pass . "<br>";
+                    //echo $upass . "<br>";
                     
-                    echo "Either <a href='register'>Register</a> with the new Email ID or <a href='login.php'>Login</a> with an already registered ID";
+                    echo "Click <a href='register.php'>Register</a> to create a new account or <a href='login.php'>Login</a> if you already have an account.";
                 }
                 
             
         
         }
     }
+
     
 
 ?>

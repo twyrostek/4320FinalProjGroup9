@@ -1,6 +1,6 @@
 <?php
     session_start(); 
-    $_SESSION["response"] = "changing response from insert.php";
+    //$_SESSION["response"] = "changing response from insert.php";
     // connect to mongodb
     $m = new MongoClient();	
     // select a database
@@ -12,7 +12,47 @@
     $uploadOk = 1;
     $uploaddir = '/var/www/files/';
     $uploadfile = $uploaddir . basename($_FILES['manifest']['name']);
+        
+    //Upload contents to the MongoDB
+    $contents = file_get_contents($_FILES['manifest']['tmp_name']);
+    //echo $contents;
+    /*echo '<pre>';
+    var_dump($contents);
+    echo '</pre>';*/
+
+    $json = json_decode($contents,true);  
     
+    /* echo '<pre>';
+    print_r(array_values($json));
+    echo '</pre>'; */
+
+
+    $title = $_POST["title"];
+    $author = $_POST["author"];
+
+    //echo $title;
+    //echo $author;
+    
+    $document = array( 
+        "title" => $title, 
+        "author" => $author,
+        "url" => $uploadfile,
+    );
+    
+    /* echo '<pre>';
+    print_r(array_values($document));
+    echo '</pre>'; */
+
+    $allJson = array_merge_recursive($document,$json);
+    
+    /* echo '<pre>';
+    print_r(array_values($allJson));
+    echo '</pre>'; */
+
+    $collection->insert($allJson);    
+
+
+    //Upload the file to the webserver
     if (file_exists($uploadfile)) {
         $_SESSION["response"] = "Sorry, file already exists.";
         //echo "Sorry, file already exists.";
@@ -32,13 +72,5 @@
         }
     }
 
-
-
-    //Upload contents to the MongoDB
-    $contents = file_get_contents($_FILES['manifest']['tmp_name']);
-    $json = json_decode($contents);   
-	
-    $collection->insert($json); 
-    
     header('Location: http://ec2-52-15-52-224.us-east-2.compute.amazonaws.com/upload.php'); 
 ?>

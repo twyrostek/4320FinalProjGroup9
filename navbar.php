@@ -4,8 +4,8 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        OCDX eXchange
+                    <a href="index.php">
+                        Squad OCDX
                     </a>
                 </li>
                 <li>
@@ -19,13 +19,13 @@
                     <a href="upload.php">Upload</a>
                 </li>
                 <li>
-                    <a href="download.php">Download</a>
+                    <a href="download_page.php">Download</a>
                 </li>
                 <li>
                     <a href="logout.php">Logout</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="about.php">About</a>
                 </li>
             </ul>
         </div>
