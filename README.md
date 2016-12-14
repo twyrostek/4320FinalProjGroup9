@@ -19,9 +19,23 @@ Design of the website was influenced by the simplicity of the Open Science Frame
 through the available manifests. Instead of having a navigation bar on the top, the site utilizes a sidebar that can be accessed at any
 time, but also has a toggle feature to hideaway and allow the user to view the information on a clear slate. As time would allow, the
 ideal state would be to have the website integrated for mobile and tablet platforms, with reading features that would function much like a
-Kindle. The Open Science Framework site also offers a login/logout feature, where the account creation is also similar, asking for a name, email, and password. 
-The sidebar contains the four most important tasks for the user: search, upload, download, and logout. There is also an about page for important information that can later be updated. As stated in the purpose, OCDX wants to create a sharing hub for scientific discoveries. As a researcher, publishing materials pertains to the upload function; as a student, the download function; and as any user, the search function. The site features easy to follow inputs and guides for each page. 
-For search, there is an input field to type keywords and two search functions to either bring up a list of manifests or usernames pertaining to the keywords. On the upload page, users are prompted to choose a file from their computer, and can click the upload button to submit it. In the future, this will be extrapolated to more fields such as a title, key contributor, and keywords to link to it. Lastly, there is download, which displays a list of manifests and a button for copying the information directly to a personal computer. Eventually, the search and download pages will be merged.
-The future design would also feature administrative privileges, allowing a distinguishing feature between users being either students or researchers in order to create credibility to what manifests are being posted. The design keeps the functions rather simple; for this stage, the site opts out of personal messaging and contacting, instead keeping search/upload/download/ as its main navigational functions.
+Kindle. The Open Science Framework site also offers a login/logout feature, where the account creation is also similar, asking for a name,
+email, and password. 
+
+The sidebar contains the four most important tasks for the user: search, upload, download, and logout. There is also an about page for
+important information that can later be updated. As stated in the purpose, OCDX wants to create a sharing hub for scientific discoveries.
+As a researcher, publishing materials pertains to the upload function; as a student, the download function; and as any user, the search
+function. The site features easy to follow inputs and guides for each page. 
+
+For search, there is an input field to type keywords and two search functions to either bring up a list of manifests or usernames
+pertaining to the keywords. On the upload page, users are prompted to choose a file from their computer, and can click the upload button
+to submit it. In the future, this will be extrapolated to more fields such as a title, key contributor, and keywords to link to it.
+Lastly, there is download, which displays a list of manifests and a button for copying the information directly to a personal computer.
+Eventually, the search and download pages will be merged.
+
+The future design would also feature administrative privileges, allowing a distinguishing feature between users being either students or
+researchers in order to create credibility to what manifests are being posted. The design keeps the functions rather simple; for this
+stage, the site opts out of personal messaging and contacting, instead keeping search/upload/download/ as its main navigational functions.
+
 
 
