@@ -41,3 +41,6 @@ stage, the site opts out of personal messaging and contacting, instead keeping s
 To get started using Squad OCDX, feel free to look at our user documentaton for a a simple step-by-step guide.
 https://github.com/twyrostek/4320FinalProjGroup9/wiki/User-Documentation
 
+#######Message from the Editors:
+We appreciate the time you took to look through our site!! We hope you thoroughly enjoyed and are always looking for ways to improve. Feel free to give us your feedback!
+
