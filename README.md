@@ -37,5 +37,7 @@ The future design would also feature administrative privileges, allowing a disti
 researchers in order to create credibility to what manifests are being posted. The design keeps the functions rather simple; for this
 stage, the site opts out of personal messaging and contacting, instead keeping search/upload/download/ as its main navigational functions.
 
-
+#####User Guide
+To get started using Squad OCDX, feel free to look at our user documentaton for a a simple step-by-step guide.
+https://github.com/twyrostek/4320FinalProjGroup9/wiki/User-Documentation
 
